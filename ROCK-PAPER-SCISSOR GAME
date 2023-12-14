@@ -1,0 +1,60 @@
+import random
+
+print('Winning rules of the game rock paper scissors are :\n'
+	+ "rock vs paper -> paper wins \n"
+	+ "rock vs scissors -> rock wins \n"
+	+ "paper vs scissors -> scissor wins \n")
+
+while True:
+	print("enter your choice \n 1 - rock \n 2 - paper \n 3 - scissors \n")
+
+	choice1 = int(input("enter your choice for user1: "))
+	choice2 = int(input("enter your choice for user2: "))
+	
+	while (choice1 > 3 or choice1 < 1) or (choice2 > 3 or choice2 < 1):
+		choice1 = int(input('enter a valid choice for user1: '))
+		choice2 = int(input('Enter a valid choice for User2: '))
+
+	if choice1 == 1:
+	    choice_name1 = 'Rock'
+	elif choice1 == 2:
+	    choice_name1 = 'Paper'
+	else:
+	    choice_name1 = 'Scissors'
+
+	if choice2 == 1:
+	    choice_name2 = 'Rock'
+	elif choice2 == 2:
+	    choice_name2 = 'Paper'
+	else:
+	    choice_name2 = 'Scissors'
+
+	print('User1 choice is:', choice_name1)
+	print('User2 choice is:', choice_name2)
+
+	if choice1 == choice2:
+		print('It\'s a Draw!')
+		result = "DRAW"
+	elif (choice1 == 1 and choice2 == 2) or (choice1 == 2 and choice2 == 1):
+		print('Paper wins!')
+		result = 'Paper'
+	elif (choice1 == 1 and choice2 == 3) or (choice1 == 3 and choice2 == 1):
+		print('Rock wins!')
+		result = 'Rock'
+	else:
+		print('Scissors wins!')
+		result = 'Scissors'
+
+	if result == 'DRAW':
+		print("<== It's a tie ==>")
+	elif result == choice_name1:
+		print("<== User1 wins ==>")
+	else:
+		print("<== User2 wins ==>")
+
+	print("Do you want to play again? (Y/N)")
+	ans = input().lower()  # Corrected the method call for lower()
+	if ans == 'n':
+		break
+
+print("Thanks for playing!")
